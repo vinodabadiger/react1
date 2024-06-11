@@ -14,5 +14,11 @@ pipeline{
                sh "pwd "
             }
         }
+
+        stage('test'){
+            steps{
+               mail bcc: '', body: 'pipeline successfully updated', cc: '', from: '', replyTo: '', subject: 'Pipeline Status', to: 'vinodbadiger321@gmail.com'
+            }
+        }
     }
 }
