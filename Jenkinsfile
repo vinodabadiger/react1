@@ -10,7 +10,7 @@ pipeline{
 
         stage('build'){
             steps{
-               docker build -t react:1 .
+               sh "docker build -t react:1 ."
             }
         }
 
