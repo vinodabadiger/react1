@@ -8,17 +8,12 @@ pipeline{
             }
         }
 
-        stage('test'){
+        stage('build'){
             steps{
-               sh" ls "
-               sh "pwd "
+               docker build -t react:1 .
             }
         }
 
-        stage('cat'){
-            steps{
-              sh "cat dockerfile"
-            }
-        }
+
     }
 }
