@@ -15,9 +15,9 @@ pipeline{
             }
         }
 
-        stage('mail'){
+        stage('cat'){
             steps{
-               mail bcc: '', body: 'pipeline successfully updated', cc: '', from: '', replyTo: '', subject: 'Pipeline Status', to: 'vinodbadiger321@gmail.com'
+              sh "cat dockerfile"
             }
         }
     }
