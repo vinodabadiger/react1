@@ -28,7 +28,7 @@ pipeline{
        }
 
 }
-  stage('push'){
+  stage('push image'){
        steps{
          sh "docker push vinoda32/react:1"
        }
