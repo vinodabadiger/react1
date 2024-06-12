@@ -24,12 +24,16 @@ pipeline{
         stage('push'){
        steps{
          withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-           docker image.push()
             }
        }
 
-        }
+}
+  stage('push'){
+       steps{
+         sh "docker push vinoda32/react:1"
+       }
 
+}
  
 
 
