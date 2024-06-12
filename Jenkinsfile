@@ -16,7 +16,7 @@ pipeline{
 
        stage('build'){
         withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-               docker tag react:1 vinoda32/react:1
+              " docker tag react:1 vinoda32/react:1"
           }
 
         }
