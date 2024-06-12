@@ -14,14 +14,14 @@ pipeline{
             }
         }
 
-       stage('build'){
+       stage('tag'){
             steps{
                sh "docker tag react:1 vinoda32/react:1"
             }
         }
 
  
-        stage('build'){
+        stage('push'){
             steps{
                sh "docker push vinoda32/react:1"
             }
