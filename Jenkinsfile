@@ -23,9 +23,8 @@ pipeline{
  
         stage('push'){
             steps{
-               withDockerRegistry(credentialsId: 'docker-cred', toolName: 'Docker', url: 'vinoda32/react') {
-           bat "docker push vinoda32/react:1"
-}
+                  withDockerRegistry(credentialsId: 'docker-cred', url: 'vinoda32/react') {
+                'docker push vinoda32/react:1'
             }
         }
 
