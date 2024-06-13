@@ -1,9 +1,9 @@
 def img
 pipeline{
     agent any
-
+    environment{
     registry = vinoda32/react
-
+    }
     stages{
         stage('checkout'){
             steps{
@@ -13,7 +13,7 @@ pipeline{
 
         stage('build'){
             steps{
-                img = registry + {$:(env.Buildid)}
+                img = registry + ":${env.Buildid}"
                sh "docker build -t $img ."
             }
         }
