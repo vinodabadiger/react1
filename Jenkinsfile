@@ -1,5 +1,8 @@
+def img
 pipeline{
     agent any
+
+    registry = vinoda32/react
 
     stages{
         stage('checkout'){
@@ -10,7 +13,8 @@ pipeline{
 
         stage('build'){
             steps{
-               sh "docker build -t vinoda32/react:5 ."
+                img = registry + ${:(env.Buildid)}
+               sh "docker build -t $img ."
             }
         }
 
@@ -23,22 +27,22 @@ pipeline{
        stage('push'){
         steps{
             withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-            sh 'docker push vinoda32/react:5'
+            sh 'docker push $img'
             }
         }
        }
 
       stage('deploy'){
         steps{
-         sh "docker run -d -p 3000:80 vinoda32/react:5 "
+         sh "docker run -d -p 3000:80 $img "
         }
       }
   
-       stage('Cleanup'){
-        steps{
-         sh "docker rmi vinoda32/react:5 "
-        }
-      }
+    //    stage('Cleanup'){
+    //     steps{
+    //      sh "docker rmi vinoda32/react:5 "
+    //     }
+    //   }
   
 
 
