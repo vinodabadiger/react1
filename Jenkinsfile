@@ -29,7 +29,7 @@ pipeline{
        stage('push'){
         steps{
             withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-            sh 'docker push $img'
+            sh "docker push $img"
             }
         }
        }
