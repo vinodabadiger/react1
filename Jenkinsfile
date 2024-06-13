@@ -13,7 +13,7 @@ pipeline{
 
         stage('build'){
             steps{
-                img = registry + ":${env.Build id}"
+                img = registry + ":${env.Buildid}"
                sh "docker build -t $img ."
             }
         }
