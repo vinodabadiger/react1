@@ -37,6 +37,7 @@ pipeline{
       stage('deploy'){
         steps{
          sh "docker stop react"
+         sh "docker rm react"
          sh "docker run -d -p 3000:80 --name react $img "
         }
       }
