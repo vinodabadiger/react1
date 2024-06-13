@@ -28,13 +28,17 @@ pipeline{
         }
        }
 
-      stage('Cleanup'){
+      stage('deploy'){
         steps{
-         sh "docker rmi vinoda32/react:5 "
+         sh "docker run -d -p 3000:80 vinoda32/react:5 "
         }
       }
   
-   
+    //    stage('Cleanup'){
+    //     steps{
+    //      sh "docker rmi vinoda32/react:5 "
+    //     }
+    //   }
   
 
 
