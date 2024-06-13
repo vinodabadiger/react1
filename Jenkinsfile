@@ -10,20 +10,20 @@ pipeline{
 
         stage('build'){
             steps{
-               sh "docker build -t react:1 ."
+               sh "docker build -t react:3 ."
             }
         }
 
        stage('tag'){
         steps{
-         sh "docker tag react:1 vinoda32/react:2"
+         sh "docker tag react:3 vinoda32/react:3"
         }
      }
 
         stage('push'){
        steps{
          withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-          sh 'docker push vinoda32/react:2'
+          sh 'docker push vinoda32/react:3'
             }
          }
       }
