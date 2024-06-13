@@ -16,30 +16,20 @@ pipeline{
 
        stage('tag'){
         steps{
-         sh "docker tag react:1 vinoda32/react:1"
+         sh "docker tag react:1 vinoda32/react:2"
         }
      }
 
         stage('push'){
        steps{
          withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
-          sh 'docker push vinoda32/react:1'
-            }
-         }
-      }
-   stage('tag once'){
-        steps{
-         sh "docker tag react:1 vinoda32/react:2"
-        }
-   
-     }
-  stage('push agin'){
-       steps{
-         withDockerRegistry(credentialsId: 'docker-cred', url: 'https://index.docker.io/v1/') {
           sh 'docker push vinoda32/react:2'
             }
          }
       }
+  
+   
+  
 
 
 }
