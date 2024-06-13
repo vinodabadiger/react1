@@ -34,11 +34,11 @@ pipeline{
         }
       }
   
-    //    stage('Cleanup'){
-    //     steps{
-    //      sh "docker rmi vinoda32/react:5 "
-    //     }
-    //   }
+       stage('Cleanup'){
+        steps{
+         sh "docker rmi vinoda32/react:5 "
+        }
+      }
   
 
 
