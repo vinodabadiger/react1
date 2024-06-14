@@ -53,7 +53,7 @@ pipeline{
                     sshPublisher(
                         publishers: [
                             sshPublisherDesc(
-                                configName: 'prod',
+                                configName: 'prod1',
                                 verbose: true ,
                                 transfers: [
                                     sshTransfer(
