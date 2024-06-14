@@ -49,25 +49,27 @@ pipeline{
     //   }
           stage('push'){
             steps{
-                sshPublisher(
-                    publishers: [
-                        sshPublisherDesc(
-                            configName: 'prod',
-                            verbose: true ,
-                            transfers: [
-                                sshTransfer(
-                                    execCommand: 'ls', 
-                                    execTimeout: 120000,
-                                    // sourceFiles: ''
-                                )
-                            ],
-                            usePromotionTimestamp: false,
-                            useWorkspaceInPromotion: false
-                        )
-                    ]
-                )
+                script {
+                    sshPublisher(
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'prod',
+                                verbose: true ,
+                                transfers: [
+                                    sshTransfer(
+                                        execCommand: 'ls', 
+                                        execTimeout: 120000,
+                                        // sourceFiles: ''
+                                    )
+                                ],
+                                usePromotionTimestamp: false,
+                                useWorkspaceInPromotion: false
+                            )
+                        ]
+                    )
+                }
             }
-       }
+        }
 
 
 }
