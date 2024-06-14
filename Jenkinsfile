@@ -57,9 +57,12 @@ pipeline{
                                 verbose: true ,
                                 transfers: [
                                     sshTransfer(
-                                        execCommand: 'ps -ef', 
+                                        execCommand: 'ls', 
                                         execTimeout: 120000
-                                        // sourceFiles: './'
+                                    ),
+                                    sshTransfer(
+                                        execCommand: 'pwd', 
+                                        execTimeout: 120000
                                     )
                                 ],
                                 usePromotionTimestamp: false,
