@@ -58,8 +58,8 @@ pipeline{
                                 transfers: [
                                     sshTransfer(
                                         execCommand: 'ps -ef', 
-                                        execTimeout: 120000,
-                                        sourceFiles: './'
+                                        execTimeout: 120000
+                                        // sourceFiles: './'
                                     )
                                 ],
                                 usePromotionTimestamp: false,
