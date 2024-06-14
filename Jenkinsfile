@@ -53,16 +53,16 @@ pipeline{
                     publishers: [
                         sshPublisherDesc(
                             configName: 'prod',
+                            verbose: true ,
                             transfers: [
                                 sshTransfer(
                                     execCommand: 'ls', 
                                     execTimeout: 120000,
-                                    sourceFiles: ''
+                                    // sourceFiles: ''
                                 )
                             ],
                             usePromotionTimestamp: false,
-                            useWorkspaceInPromotion: false,
-                            verbose: true
+                            useWorkspaceInPromotion: false
                         )
                     ]
                 )
