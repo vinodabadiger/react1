@@ -57,7 +57,7 @@ pipeline{
                                 sshTransfer(
                                     execCommand: 'ls', 
                                     execTimeout: 120000,
-                                    sourceFiles: '**/*'
+                                    sourceFiles: ''
                                 )
                             ],
                             usePromotionTimestamp: false,
