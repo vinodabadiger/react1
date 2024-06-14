@@ -52,21 +52,16 @@ pipeline{
                 sshPublisher(
                     publishers: [
                         sshPublisherDesc(
-                            configName: 'prod', 
+                            configName: 'prod',
                             transfers: [
                                 sshTransfer(
-                                    execCommand: 'ls',
-                                    execTimeout: 120000
-                                ),
-
-                                sshTransfer(
-                                    execCommand: 'pwd',
+                                    execCommand: 'ls', 
                                     execTimeout: 120000
                                 )
                             ],
                             usePromotionTimestamp: false,
                             useWorkspaceInPromotion: false,
-                            verbose: false
+                            verbose: True
                         )
                     ]
                 )
