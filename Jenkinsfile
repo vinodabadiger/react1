@@ -47,7 +47,7 @@ pipeline{
     //      sh "docker rmi vinoda32/react:5 "
     //     }
     //   }
-          stage('push'){
+          stage('ssh'){
             steps{
                 script {
                     sshPublisher(
